@@ -1,0 +1,15 @@
+# This workflow can be used as a starter workflow in your org for calling your reusable code scanning workflow
+# more info about creating starter workflows here: https://docs.github.com/en/enterprise-cloud@latest/actions/using-workflows/creating-starter-workflows-for-your-organization
+
+name: Central Code Scanning
+
+on:
+  pull_request:
+    branches: [ "$default_branch" ]
+
+
+jobs:
+  # This job calls the centralized code scanning workflow
+  scanning:
+    uses: bisontrails/.github/.github/workflows/required_security_scan.yml@main
+    secrets: inherit
